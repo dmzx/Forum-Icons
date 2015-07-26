@@ -1,0 +1,11 @@
+.imageline {
+	height:auto;
+	overflow-y:scroll;
+	border:none; 
+	margin-top: 5px;
+	padding: 5px;
+
+}
+.imageline img {
+	cursor:pointer;
+}
