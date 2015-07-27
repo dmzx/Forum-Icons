@@ -21,7 +21,8 @@ class listener implements EventSubscriberInterface
 {
 	/** @var \phpbb\template\template */
 	protected $template;
-
+	
+	/** @var string phpBB root path */
 	protected $phpbb_root_path;
 
 	/**
@@ -47,28 +48,28 @@ class listener implements EventSubscriberInterface
 	{
 		$array = $event['forum_data'];
 
-				$dirslist = ' ';
+		$dirslist = ' ';
 
-				$dirs = dir($this->phpbb_root_path . 'ext/dmzx/forumicons/forum_icons/');
-				while ($file = $dirs->read())
-				{
-					if (stripos($file, ".gif") ||	stripos($file, ".png"))
-					{
-						$dirslist .= "$file ";
-					}
-				}
-				closedir($dirs->handle);
-				$dirslist = explode(" ", $dirslist);
-				sort($dirslist);
+		$dirs = dir($this->phpbb_root_path . 'ext/dmzx/forumicons/forum_icons/');
+		while ($file = $dirs->read())
+		{
+			if (stripos($file, ".gif") ||	stripos($file, ".png"))
+			{
+				$dirslist .= "$file ";
+			}
+		}
+		closedir($dirs->handle);
+		$dirslist = explode(" ", $dirslist);
+		sort($dirslist);
 
-				for ($i = 0; $i < sizeof($dirslist); $i++)
-				{
-					if ($dirslist[$i] != '')
-					{
-						$this->template->assign_block_vars('forum_img_file_name', array('FORUM_IMAGE_OPT' => $dirslist[$i]));
-					}
-				}
-				$dirslist = '';
+		for ($i = 0; $i < sizeof($dirslist); $i++)
+		{
+			if ($dirslist[$i] != '')
+			{
+				$this->template->assign_block_vars('forum_img_file_name', array('FORUM_IMAGE_OPT' => $dirslist[$i]));
+			}
+		}
+		$dirslist = '';
 
 		$event['forum_data'] = $array;
 	}
