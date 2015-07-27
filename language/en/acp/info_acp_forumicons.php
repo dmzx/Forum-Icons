@@ -20,5 +20,6 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'AVAILABLE_FORUM_IMAGE'			=> '<strong>Click on an image to select</strong>',
 	'AVAILABLE_FORUM_IMAGE_EXPLAIN'	=> 'Images are shown ~50% of actual size.',
+	'SELECTED_FORUM_IMAGE'			=> '<strong>Selected forum image</strong>',
 	'CLEAR_BUTTON'					=> 'Clear forum image',
 ));

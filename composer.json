@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Simply click on the icon to set the forum image.",
 	"homepage": "http://www.dmzx-web.net",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"time": "2015-07-11",
 	"keywords": ["phpbb", "extension", "forumicons"],
 	"license": "GPL-2.0",
