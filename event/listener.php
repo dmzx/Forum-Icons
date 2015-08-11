@@ -21,7 +21,7 @@ class listener implements EventSubscriberInterface
 {
 	/** @var \phpbb\template\template */
 	protected $template;
-	
+
 	/** @var string phpBB root path */
 	protected $phpbb_root_path;
 
