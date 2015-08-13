@@ -25,7 +25,7 @@
 		},
 		"version-check": {
 			"host": "www.phpbb.com",
-			"directory": "/customise/db/extension/",
+			"directory": "/customise/db/extension/forum_icons",
 			"filename": "version_check"
 		}
 	}
