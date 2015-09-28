@@ -1,13 +1,17 @@
 <?php
 /**
 *
-* @package phpBB Extension - Forum Icons
-* @copyright (c) 2015 dmzx - http://www.dmzx-web.net
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-* @French Translation Philippe - http://www.forum-newbeetle.fr
+* Forum Icons extension for the phpBB Forum Software package.
+* French translation by Philippe (http://www.forum-newbeetle.fr) & Galixte (http://www.galixte.com)
+*
+* @copyright (c) 2015 dmzx <http://www.dmzx-web.net>
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
+/**
+* DO NOT CHANGE
+*/
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -36,7 +40,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'AVAILABLE_FORUM_IMAGE'			=> '<strong>Cliquer sur une image pour la sélectionner</strong>',
-	'AVAILABLE_FORUM_IMAGE_EXPLAIN'	=> 'Les images sont affichées à ~50% de leur taille réelle.',
+	'AVAILABLE_FORUM_IMAGE_EXPLAIN'	=> 'Les images sont affichées à environ 50% de leur taille réelle.',
 	'SELECTED_FORUM_IMAGE'			=> '<strong>Image du forum sélectionnée</strong>',
 	'CLEAR_BUTTON'					=> 'Effacer l’image du forum',
 ));
