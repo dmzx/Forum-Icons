@@ -42,5 +42,5 @@ $lang = array_merge($lang, array(
 	'AVAILABLE_FORUM_IMAGE'			=> '<strong>Cliquer sur une image pour la sélectionner</strong>',
 	'AVAILABLE_FORUM_IMAGE_EXPLAIN'	=> 'Les images sont affichées à environ 50% de leur taille réelle.',
 	'SELECTED_FORUM_IMAGE'			=> '<strong>Image du forum sélectionnée</strong>',
-	'CLEAR_BUTTON'					=> 'Effacer l’image du forum',
+	'CLEAR_BUTTON'					=> 'Supprimer l’image du forum',
 ));
