@@ -9,14 +9,8 @@
 
 namespace dmzx\forumicons\event;
 
-/**
-* @ignore
-*/
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-/**
-* Event listener
-*/
 class listener implements EventSubscriberInterface
 {
 	/** @var \phpbb\template\template */
@@ -26,8 +20,11 @@ class listener implements EventSubscriberInterface
 	protected $phpbb_root_path;
 
 	/**
+	* Constructor
+	*
 	* @param \phpbb\template\template $template
 	* @param $phpbb_root_path
+	*
 	*/
 	public function __construct(\phpbb\template\template $template, $phpbb_root_path)
 	{
@@ -50,7 +47,7 @@ class listener implements EventSubscriberInterface
 
 		$dirslist = ' ';
 
-		$dirs = dir($this->phpbb_root_path . 'ext/dmzx/forumicons/forum_icons/');
+		$dirs = dir($this->phpbb_root_path . 'images/forumicons/');
 		while ($file = $dirs->read())
 		{
 			if (stripos($file, ".gif") ||	stripos($file, ".png"))
@@ -78,8 +75,8 @@ class listener implements EventSubscriberInterface
 	public function acp_manage_forums_display_form($event)
 	{
 		$array = $event['template_data'];
-		$array['FORUM_IMAGE_SRC_PATH'] = $this->phpbb_root_path . 'ext/dmzx/forumicons/forum_icons/';
-		$array['FORUM_IMAGE_PATH'] = 'ext/dmzx/forumicons/forum_icons/';
+		$array['FORUM_IMAGE_SRC_PATH'] = $this->phpbb_root_path . 'images/forumicons/';
+		$array['FORUM_IMAGE_PATH'] = 'images/forumicons/';
 		$event['template_data'] = $array;
 	}
 }
