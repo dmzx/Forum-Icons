@@ -1,8 +1,8 @@
 services:
     dmzx.forumicons.listener:
-        class: dmzx\forumicons\event\listener
+        class: 'dmzx\forumicons\event\listener'
         arguments:
             - '@template'
             - '%core.root_path%'
         tags:
-            - { name: event.listener }
+            - { name: 'event.listener' }

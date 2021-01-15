@@ -1,5 +1,7 @@
 # phpBB Forum Icons Extension
 
+[![Build Status](https://travis-ci.org/dmzx/Forum-Icons.svg?branch=master)](https://travis-ci.org/dmzx/Forum-Icons)
+
 ## Install
 
 1. Download the latest release and Unzip the downloaded release.

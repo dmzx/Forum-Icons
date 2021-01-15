@@ -2,31 +2,35 @@
 /**
 *
 * @package phpBB Extension - Forum Icons
-* @copyright (c) 2015 dmzx - http://www.dmzx-web.net
+* @copyright (c) 2015 dmzx - https://www.dmzx-web.net
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
 namespace dmzx\forumicons\event;
 
+use phpbb\template\template;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface
 {
-	/** @var \phpbb\template\template */
+	/** @var template */
 	protected $template;
 
-	/** @var string phpBB root path */
+	/** @var string */
 	protected $phpbb_root_path;
 
 	/**
 	* Constructor
 	*
-	* @param \phpbb\template\template $template
+	* @param template $template
 	* @param $phpbb_root_path
 	*
 	*/
-	public function __construct(\phpbb\template\template $template, $phpbb_root_path)
+	public function __construct(
+		template $template,
+		$phpbb_root_path
+	)
 	{
 		$this->template = $template;
 		$this->phpbb_root_path = $phpbb_root_path;
@@ -34,10 +38,10 @@ class listener implements EventSubscriberInterface
 
 	static public function getSubscribedEvents()
 	{
-		return array(
+		return [
 			'core.acp_manage_forums_initialise_data'	=> 'acp_manage_forums_initialise_data',
 			'core.acp_manage_forums_display_form'		=> 'acp_manage_forums_display_form',
-		);
+		];
 	}
 
 	// Default settings for new forums
@@ -46,11 +50,11 @@ class listener implements EventSubscriberInterface
 		$array = $event['forum_data'];
 
 		$dirslist = ' ';
-
 		$dirs = dir($this->phpbb_root_path . 'images/forumicons/');
+
 		while ($file = $dirs->read())
 		{
-			if (stripos($file, ".gif") ||	stripos($file, ".png"))
+			if (stripos($file, ".gif") || stripos($file, ".png"))
 			{
 				$dirslist .= "$file ";
 			}
@@ -63,7 +67,7 @@ class listener implements EventSubscriberInterface
 		{
 			if ($dirslist[$i] != '')
 			{
-				$this->template->assign_block_vars('forum_img_file_name', array('FORUM_IMAGE_OPT' => $dirslist[$i]));
+				$this->template->assign_block_vars('forum_img_file_name', ['FORUM_IMAGE_OPT' => $dirslist[$i]]);
 			}
 		}
 		$dirslist = '';

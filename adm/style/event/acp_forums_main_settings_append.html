@@ -1,5 +1,4 @@
-<script type="text/javascript">
-	// <![CDATA[
+<script>
 	function set_image(data)
 	{
 		var path = 'images/forumicons/' + data;
@@ -14,16 +13,14 @@
 		document.getElementById('forum_image').value=path;
 		document.getElementById("fimg").innerHTML = "<img alt='' height='25' width='25' src='./../" + path + "' />";
 	}
-
-	// ]]&gt;
 </script>
 <dl>
-	<dt><label for="side">{L_AVAILABLE_FORUM_IMAGE}{L_COLON}</label><br />{L_AVAILABLE_FORUM_IMAGE_EXPLAIN}<br /><br />{L_SELECTED_FORUM_IMAGE}{L_COLON}<span id="fimg"><img src="{FORUM_IMAGE_SRC}" width="25" height="25" alt="" /></span><br /><br /><input onclick="set_image('')" class="button1" type="button" id="clear" name="clear" value="{L_CLEAR_BUTTON}" /></dt>
+	<dt><label for="side">{{ lang('AVAILABLE_FORUM_IMAGE') }}{{ lang('COLON') }}</label><br />{{ lang('AVAILABLE_FORUM_IMAGE_EXPLAIN') }}<br /><br />{{ lang('SELECTED_FORUM_IMAGE') ~ lang('COLON') }}<span id="fimg">{% if FORUM_IMAGE_SRC %}<img src="{{ FORUM_IMAGE_SRC }}" width="25" height="25" alt="" />{% endif %}</span><br /><br /><input onclick="set_image('')" class="button1" type="button" id="clear" name="clear" value="{{ lang('CLEAR_BUTTON') }}" /></dt>
 	<dd class="imageline" id="side">
-		<!-- BEGIN forum_img_file_name -->
-			<!-- IF forum_img_file_name.FORUM_IMAGE_OPT -->
-				<a onclick="set_image('{forum_img_file_name.FORUM_IMAGE_OPT}', true, true); return false;"><img src='{FORUM_IMAGE_SRC_PATH}{forum_img_file_name.FORUM_IMAGE_OPT}' title="{FORUM_IMAGE_PATH}{forum_img_file_name.FORUM_IMAGE_OPT}" width="25" height="25" alt="" /></a>
-			<!-- ENDIF -->
-		<!-- END forum_img_file_name -->
+		{% for forum_img_file_name in loops.forum_img_file_name %}
+			{% if forum_img_file_name.FORUM_IMAGE_OPT %}
+				<a onclick="set_image('{{ forum_img_file_name.FORUM_IMAGE_OPT }}', true, true); return false;"><img src='{{ FORUM_IMAGE_SRC_PATH }}{{ forum_img_file_name.FORUM_IMAGE_OPT }}' title="{{ FORUM_IMAGE_PATH }}{{ forum_img_file_name.FORUM_IMAGE_OPT }}" width="25" height="25" alt="" /></a>
+			{% endif %}
+		{% endfor %}
 	</dd>
 </dl>

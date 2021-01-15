@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - Forum Icons
-* @copyright (c) 2015 dmzx - http://www.dmzx-web.net
+* @copyright (c) 2015 dmzx - https://www.dmzx-web.net
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -18,18 +18,19 @@ class forumicons_install extends \phpbb\db\migration\migration
 
 	static public function depends_on()
 	{
-		return array('\phpbb\db\migration\data\v31x\v311');
+		return [
+			'\phpbb\db\migration\data\v31x\v311'
+		];
 	}
 
 	public function update_data()
 	{
-		return array(
-			// Add configs
-			array('config.add', array('forumicons_version', '1.0.2')),
-
+		return [
+			// Add config
+			['config.add', ['forumicons_version', '1.0.2']],
 			// Add upload directory
-			array('custom', array(array($this, 'upload_directory'))),
-		);
+			['custom', [[$this, 'upload_directory']]],
+		];
 	}
 
 	public function upload_directory()

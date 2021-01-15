@@ -2,35 +2,40 @@
 	"name": "dmzx/forumicons",
 	"type": "phpbb-extension",
 	"description": "Simply click on the icon to set the forum image.",
-	"homepage": "http://www.dmzx-web.net",
-	"version": "1.0.2",
-	"time": "2016-03-07",
+	"homepage": "https://www.dmzx-web.net",
+	"version": "1.0.3",
+	"time": "2021-01-13",
 	"keywords": [
 		"phpbb",
 		"extension",
 		"forumicons"
 	],
-	"license": "GPL-2.0",
+	"license": "GPL-2.0-only",
 	"authors": [
 		{
 			"name": "dmzx",
-			"homepage": "http://www.dmzx-web.net",
+			"homepage": "https://www.dmzx-web.net",
 			"email": "info@dmzx-web.net",
 			"role": "Extension Developer"
 		}
 	],
 	"require": {
-		"php": ">=5.3.3"
+		"php": ">=5.4",
+		"composer/installers": "~1.0"
+	},
+	"require-dev": {
+		"phpbb/epv": "dev-master"
 	},
 	"extra": {
 		"display-name": "Forum Icons",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.1.0-a1,<3.2.0@dev"
+			"phpbb/phpbb": ">=3.1.0-a1,<4.0.0@dev"
 		},
 		"version-check": {
 			"host": "www.dmzx-web.net",
 			"directory": "/versions",
-			"filename": "forumicons_version.json"
+			"filename": "forumicons_version.json",
+			"ssl": true
 		}
 	}
 }
